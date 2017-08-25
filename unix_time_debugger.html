@@ -1,4 +1,4 @@
-<!Doctype >
+<!Doctype html>
 
 <head>
   
@@ -9,20 +9,28 @@
 
   <h3 id="timeDisplay"></h3>
 
-  <input type="button" value="test">
-  <input id="output" type="text">
+  <input id="addMinutes" type="button" value="add 3 minutes">
+  <input id="output1" type="text">
 
   <script>
     (function() {
 
       var interval = 1000;
       var timeDisplay = document.getElementById("timeDisplay");
-
+      var button1 = document.getElementById("addMinutes");
+      var output1 = document.getElementById("output1");
+      var currentTime;
+      
       timeDisplay.innerText = new Date().getTime();
+
+      button1.addEventListener("click", function() {
+        output1.value = currentTime;
+      });
 
       // update displayed time
       function updateTime() {
-          timeDisplay.innerText = new Date().getTime();
+        currentTime = new Date().getTime();
+        timeDisplay.innerText = currentTime;
       }
       setInterval(updateTime, interval);
 
